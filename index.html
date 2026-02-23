@@ -1,44 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>SmartGear NZ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartGear NZ</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f5f5f5;
+}
+.top-bar{
+  background:#e9ecef;
+  text-align:center;
+  padding:5px;
+  font-size:14px;
+}
+.address{
+  background:#ffffff;
+  text-align:center;
+  padding:8px;
+  font-size:14px;
+  border-bottom:1px solid #ddd;
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px;
+  background:white;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:#007bff;
+  text-decoration:none;
+}
+.search-bar{
+  padding:10px;
+  background:white;
+}
+.search-bar input{
+  width:100%;
+  padding:12px;
+  border-radius:25px;
+  border:1px solid #ccc;
+}
+.categories{
+  display:flex;
+  overflow-x:auto;
+  padding:10px;
+  gap:8px;
+  background:white;
+}
+.categories button{
+  padding:8px 15px;
+  border:none;
+  border-radius:20px;
+  background:#e0e0e0;
+}
+.banner{
+  background:#28a745;
+  color:white;
+  text-align:center;
+  padding:15px;
+  font-weight:bold;
+}
+.products{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  padding:10px;
+}
+.card{
+  background:white;
+  border-radius:10px;
+  padding:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  text-align:center;
+}
+.card img{
+  max-width:100%;
+  height:120px;
+  object-fit:cover;
+}
+.price{
+  background:#007bff;
+  color:white;
+  padding:5px 10px;
+  border-radius:20px;
+  display:inline-block;
+  margin-top:5px;
+}
+.old-price{
+  text-decoration:line-through;
+  color:gray;
+  font-size:13px;
+}
+.section-title{
+  padding:10px;
+  font-weight:bold;
+  font-size:18px;
+}
+.services{
+  padding:10px;
+}
+.service-card{
+  background:white;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.upload-section{
+  background:white;
+  padding:15px;
+  margin:10px;
+  border-radius:10px;
+}
+.upload-section input, .upload-section textarea, .upload-section select{
+  width:100%;
+  margin-bottom:10px;
+  padding:8px;
+}
+button{
+  cursor:pointer;
+}
+.email-bar{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#007bff;
+  color:white;
+  text-align:center;
+  padding:10px;
+}
+footer{
+  background:#333;
+  color:white;
+  padding:15px;
+  text-align:center;
+  margin-top:50px;
+}
+.chat{
+  position:fixed;
+  bottom:60px;
+  right:15px;
+  background:#28a745;
+  color:white;
+  padding:10px;
+  border-radius:50%;
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to SmartGear NZ</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <h2>Your Ultimate Gear Destination</h2>
-            <p>Discover our premium range of outdoor gear.</p>
-        </section>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>At SmartGear NZ, we provide top-quality gear for adventurers.</p>
-        </section>
-        <section id="services">
-            <h2>Our Services</h2>
-            <p>We offer a variety of services to enhance your outdoor experiences.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us through our social media channels or email.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 SmartGear NZ. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+
+<div class="top-bar">Based in Auckland, New Zealand</div>
+<div class="address">📍 153B Portage Road, New Lynn, Auckland 0600</div>
+
+<header>
+  <div>☰</div>
+  <a href="#" class="logo">SmartGear NZ</a>
+  <div>🛒(0)</div>
+</header>
+
+<div class="search-bar">
+  <input type="text" placeholder="Search what you are looking for...">
+</div>
+
+<div class="categories">
+  <button>iPhones</button>
+  <button>Samsung</button>
+  <button>iPads</button>
+  <button>Laptops</button>
+  <button>Washing Machines</button>
+  <button>Sofa Sets</button>
+  <button>Services</button>
+</div>
+
+<div class="banner">WE OFFER FREE DELIVERY TO OUR CLIENTS</div>
+
+<div class="section-title">Products</div>
+<div class="products" id="productGrid"></div>
+
+<div class="section-title">Home Appliances & Furniture</div>
+
+<div class="section-title">Facebook Marketplace Service Providers – Trusted Agents in Auckland NZ</div>
+<div class="services">
+  <div class="service-card">
+    <strong>Verified Auckland Agent</strong><br>
+    Service Category<br>
+    ⭐⭐⭐⭐⭐<br>
+    Location: Auckland NZ<br>
+    <button>Message Agent</button>
+  </div>
+</div>
+
+<div class="upload-section">
+  <h3>Add Your Products</h3>
+  <input type="text" id="name" placeholder="Product Name">
+  <input type="number" id="price" placeholder="Price">
+  <input type="number" id="oldprice" placeholder="Previous Price (Optional)">
+  <textarea id="desc" placeholder="Description"></textarea>
+  <select id="category">
+    <option>iPhones</option>
+    <option>Samsung</option>
+    <option>iPads</option>
+    <option>Laptops</option>
+    <option>Washing Machines</option>
+    <option>Sofa Sets</option>
+  </select>
+  <input type="file" id="image" multiple>
+  <button onclick="addProduct()">Add Product</button>
+</div>
+
+<div class="section-title">Contact Us</div>
+<div style="padding:10px;">
+  <form action="mailto:smartgear0660@gmail.com" method="post" enctype="text/plain">
+    <input type="text" placeholder="Your Name" required style="width:100%;padding:8px;margin-bottom:8px;">
+    <input type="email" placeholder="Your Email" required style="width:100%;padding:8px;margin-bottom:8px;">
+    <textarea placeholder="Your Message" required style="width:100%;padding:8px;"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+<div class="chat">💬</div>
+
+<div class="email-bar">
+  Email Customer Service: smartgear0660@gmail.com
+</div>
+
+<footer>
+  <strong>SmartGear NZ</strong><br>
+  📍 153B Portage Road, New Lynn, Auckland 0600<br>
+  Auckland, New Zealand<br>
+  Email: smartgear0660@gmail.com
+</footer>
+
+<script>
+function addProduct(){
+  let name=document.getElementById("name").value;
+  let price=document.getElementById("price").value;
+  let oldprice=document.getElementById("oldprice").value;
+  let image=document.getElementById("image").files[0];
+  let reader=new FileReader();
+
+  reader.onload=function(e){
+    let grid=document.getElementById("productGrid");
+    let card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`
+      <h4>${name}</h4>
+      <img src="${e.target.result}">
+      <div class="price">$${price}</div>
+      ${oldprice?`<div class="old-price">$${oldprice}</div>`:""}
+    `;
+    grid.appendChild(card);
+  }
+
+  if(image){
+    reader.readAsDataURL(image);
+  }
+}
+</script>
+
 </body>
 </html>
